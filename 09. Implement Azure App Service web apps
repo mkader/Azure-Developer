@@ -1,0 +1,37 @@
+# AZ-204: Implement Azure App Service web apps
+
+## Explore Azure App Service
+* The key components of Azure App Service and how App Service can help you create, maintain, and deploy web apps more efficiently.
+
+### Examine Azure App Service
+* Azure App Service is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. 
+* Develop programming language or framework. 
+* Applications run and scale with ease on both Windows and Linux-based environments.
+
+* Built-in auto scale support
+  1. Baked into Azure App Service is the ability to scale up/down or scale out/in. 
+  1. Depending on the usage of the web app, you can scale the resources of the underlying machine that is hosting your web app up/down. 
+  1. Resources include the number of cores or the amount of RAM available. 
+  1. Scaling out/in is the ability to increase, or decrease, the number of machine instances that are running your web app.
+
+* Continuous integration/deployment support
+  1. The Azure portal provides out-of-the-box CI/CD with Azure DevOps Services, GitHub, Bitbucket, FTP, or a local Git repository on your development machine. 
+  1. Connect your web app with any of the above sources and App Service will do the rest for you by auto-syncing code and any future changes on the code into the web app.
+
+* Deployment slots
+  1. When you deploy your web app you can use a separate deployment slot instead of the default production slot when you're running in the Standard App Service Plan tier or better. 
+  1. Deployment slots are live apps with their own host names. 
+  1. App content and configurations elements can be swapped between two deployment slots, including the production slot.
+
+* App Service on Linux
+  1. App Service can also host web apps natively on Linux for supported application stacks. 
+  1. It can also run custom Linux containers (also known as Web App for Containers). 
+  1. App Service on Linux supports many language specific built-in images. 
+  1. Just deploy your code. Supported languages and frameworks include: Node.js, Java (JRE 8 & JRE 11), PHP, Python, .NET, and Ruby. 
+  1. If the runtime your application requires isn't supported in the built-in images, you can deploy it with a custom container.
+  1. The languages, and their supported versions, are updated regularly.  The current list: az webapp list-runtimes --os-type linux
+
+* Limitations: App Service on Linux does have some limitations:
+  1. App Service on Linux isn't supported on Shared pricing tier.
+  1. The Azure portal shows only features that currently work for Linux apps. As features are enabled, they're activated on the portal.
+  1. When deployed to built-in images, your code and content are allocated a storage volume for web content, backed by Azure Storage. The disk latency of this volume is higher and more variable than the latency of the container filesystem. Apps that require heavy read-only access to content files may benefit from the custom container option, which places files in the container filesystem instead of on the content volume.
